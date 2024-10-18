@@ -1,12 +1,13 @@
+
 services:
   backend:
     build:
-      context: ./
+      context: ./ # Modifica se necessario
       dockerfile: Dockerfile
     ports:
-      - "5000"  # Esponi la porta del backend
+      - "5000:5000" # Mappa la porta 5000 del container a quella della tua macchina
     environment:
-      - ASPNETCORE_ENVIRONMENT=Development
+      ASPNETCORE_ENVIRONMENT: Development
     depends_on:
       - db
 
@@ -15,9 +16,6 @@ services:
     environment:
       POSTGRES_USER: user
       POSTGRES_PASSWORD: password
-      POSTGRES_DB: nome_database
-    volumes:
-      - db_data:/var/lib/postgresql/data
-
-volumes:
-  db_data:
+      POSTGRES_DB: jobworld
+    ports:
+      - "5432:5432" # Mappa la porta del database

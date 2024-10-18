@@ -292,3 +292,13 @@ C:\Users\utente\Desktop\Progetti Web\C#\JobWorld\job-world-backend\obj\Debug\net
 C:\Users\utente\Desktop\Progetti Web\C#\JobWorld\job-world-backend\obj\Debug\net8.0\JobWorld.csproj.Up2Date
 C:\Users\utente\Desktop\Progetti Web\C#\JobWorld\job-world-backend\obj\Debug\net8.0\JobWorld.genruntimeconfig.cache
 C:\Users\utente\Desktop\Progetti Web\C#\JobWorld\job-world-backend\obj\Debug\net8.0\ref\JobWorld.dll
+C:\Users\utente\Desktop\Progetti Web\C#\JobWorld\job-world-backend\bin\Debug\net8.0\out\web.config
+C:\Users\utente\Desktop\Progetti Web\C#\JobWorld\job-world-backend\bin\Debug\net8.0\out\appsettings.Development.json
+C:\Users\utente\Desktop\Progetti Web\C#\JobWorld\job-world-backend\bin\Debug\net8.0\out\appsettings.json
+C:\Users\utente\Desktop\Progetti Web\C#\JobWorld\job-world-backend\bin\Debug\net8.0\out\JobWorld.deps.json
+C:\Users\utente\Desktop\Progetti Web\C#\JobWorld\job-world-backend\bin\Debug\net8.0\out\JobWorld.runtimeconfig.json
+C:\Users\utente\Desktop\Progetti Web\C#\JobWorld\job-world-backend\bin\Debug\net8.0\out\out\web.config
+C:\Users\utente\Desktop\Progetti Web\C#\JobWorld\job-world-backend\bin\Debug\net8.0\out\out\appsettings.Development.json
+C:\Users\utente\Desktop\Progetti Web\C#\JobWorld\job-world-backend\bin\Debug\net8.0\out\out\appsettings.json
+C:\Users\utente\Desktop\Progetti Web\C#\JobWorld\job-world-backend\bin\Debug\net8.0\out\out\JobWorld.deps.json
+C:\Users\utente\Desktop\Progetti Web\C#\JobWorld\job-world-backend\bin\Debug\net8.0\out\out\JobWorld.runtimeconfig.json

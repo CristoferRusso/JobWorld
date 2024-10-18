@@ -20,6 +20,8 @@ builder.Services.AddCors(options =>
                           .AllowAnyHeader());
 });
 
+builder.WebHost.UseUrls("http://*:5000");
+
 var app = builder.Build();
 
 // Configura la pipeline delle richieste HTTP.
@@ -45,7 +47,9 @@ app.MapPost("/api/user/login", (JobWorld.Models.User user) =>
 }).WithName("LoginUser");
 
 
-app.Run();
+app.Run("http://0.0.0.0:5000");
+
+
 
 record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
 {
