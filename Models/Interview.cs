@@ -9,6 +9,6 @@ namespace JobWorld.Models
         public int UserId { get; set; }
         public int JobId { get; set; }
         public DateTime InterviewDate { get; set; }
-        public string Notes { get; set; }
+        public string? Notes { get; set; }
     }
 }

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\utente\\Desktop\\Progetti Web\\C#\\JobWorld\\JobWorld.csproj": {}
+    "C:\\Users\\utente\\Desktop\\Progetti Web\\C#\\JobWorld\\job-world-backend\\JobWorld.csproj": {}
   },
   "projects": {
-    "C:\\Users\\utente\\Desktop\\Progetti Web\\C#\\JobWorld\\JobWorld.csproj": {
+    "C:\\Users\\utente\\Desktop\\Progetti Web\\C#\\JobWorld\\job-world-backend\\JobWorld.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\utente\\Desktop\\Progetti Web\\C#\\JobWorld\\JobWorld.csproj",
+        "projectUniqueName": "C:\\Users\\utente\\Desktop\\Progetti Web\\C#\\JobWorld\\job-world-backend\\JobWorld.csproj",
         "projectName": "JobWorld",
-        "projectPath": "C:\\Users\\utente\\Desktop\\Progetti Web\\C#\\JobWorld\\JobWorld.csproj",
+        "projectPath": "C:\\Users\\utente\\Desktop\\Progetti Web\\C#\\JobWorld\\job-world-backend\\JobWorld.csproj",
         "packagesPath": "C:\\Users\\utente\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\utente\\Desktop\\Progetti Web\\C#\\JobWorld\\obj\\",
+        "outputPath": "C:\\Users\\utente\\Desktop\\Progetti Web\\C#\\JobWorld\\job-world-backend\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\utente\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -49,6 +49,10 @@
             "Microsoft.AspNet.WebApi.Client": {
               "target": "Package",
               "version": "[6.0.0, )"
+            },
+            "Microsoft.AspNetCore.Cors": {
+              "target": "Package",
+              "version": "[2.2.0, )"
             },
             "Microsoft.AspNetCore.OpenApi": {
               "target": "Package",
