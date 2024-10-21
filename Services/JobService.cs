@@ -1,10 +1,6 @@
 // Services/JobService.cs
 using JobWorld.Models;
-using System.Collections.Generic;
-using System.Net.Http;
-using System.Threading.Tasks;
-using System.Net.Http;
-using System.Net.Http.Formatting; 
+
 
 namespace JobWorld.Services
 {

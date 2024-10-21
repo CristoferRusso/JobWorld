@@ -302,3 +302,4 @@ C:\Users\utente\Desktop\Progetti Web\C#\JobWorld\job-world-backend\bin\Debug\net
 C:\Users\utente\Desktop\Progetti Web\C#\JobWorld\job-world-backend\bin\Debug\net8.0\out\out\appsettings.json
 C:\Users\utente\Desktop\Progetti Web\C#\JobWorld\job-world-backend\bin\Debug\net8.0\out\out\JobWorld.deps.json
 C:\Users\utente\Desktop\Progetti Web\C#\JobWorld\job-world-backend\bin\Debug\net8.0\out\out\JobWorld.runtimeconfig.json
+C:\Users\utente\Desktop\Progetti Web\C#\JobWorld\job-world-backend\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll

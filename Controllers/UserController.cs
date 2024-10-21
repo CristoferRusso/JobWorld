@@ -1,7 +1,9 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.IdentityModel.Tokens;
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
+using System.Text;
 using JobWorld.Models;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace JobWorld.Controllers
 {
@@ -9,9 +11,54 @@ namespace JobWorld.Controllers
     [Route("api/[controller]")]
     public class UserController : ControllerBase
     {
-        // Simulazione di un database
         private static List<User> users = new List<User>();
+        private readonly IConfiguration _configuration;
 
+        public UserController(IConfiguration configuration)
+        {
+            _configuration = configuration;
+        }
+
+        // Metodo di login
+        [HttpPost("login")]
+        public IActionResult Login([FromBody] LoginRequest login)
+        {
+            var user = users.FirstOrDefault(u => u.Email == login.Email && u.PasswordHash == login.Password);
+            if (user != null)
+            {
+                var token = GenerateJwtToken(user.Email);
+                Console.WriteLine($"Generated Token: {token}"); 
+                return Ok(new { token });
+            }
+            return Unauthorized("Invalid credentials");
+        }
+
+        // Metodo per generare il token JWT
+        private string GenerateJwtToken(string email)
+        {
+            // Ottieni la chiave segreta dal file di configurazione
+            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]));
+            var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
+
+            // Crea le claims (informazioni incluse nel token)
+            var claims = new[]
+            {
+                new Claim(JwtRegisteredClaimNames.Sub, email),
+                new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
+            };
+
+            // Crea il token
+            var token = new JwtSecurityToken(
+                issuer: _configuration["Jwt:Issuer"],
+                audience: _configuration["Jwt:Audience"],
+                claims: claims,
+                expires: DateTime.Now.AddHours(1),
+                signingCredentials: creds);
+
+            return new JwtSecurityTokenHandler().WriteToken(token);
+        }
+
+        // Altri metodi CRUD per utenti
         [HttpGet]
         public ActionResult<IEnumerable<User>> GetUsers()
         {
@@ -32,7 +79,7 @@ namespace JobWorld.Controllers
         [HttpPost]
         public ActionResult<User> CreateUser(User user)
         {
-            user.Id = users.Count + 1; // Logica semplice per generare un ID
+            user.Id = users.Count + 1;
             users.Add(user);
             return CreatedAtAction(nameof(GetUser), new { id = user.Id }, user);
         }
@@ -46,11 +93,10 @@ namespace JobWorld.Controllers
                 return NotFound();
             }
 
-            user.Name = updatedUser.Name; // Aggiorna le proprietà necessarie
-            user.Email = updatedUser.Email; // Esempio di aggiornamento dell'email
-            // Aggiungi qui altre proprietà da aggiornare
+            user.Name = updatedUser.Name;
+            user.Email = updatedUser.Email;
 
-            return NoContent(); // Restituisce 204 No Content
+            return NoContent();
         }
 
         [HttpDelete("{id}")]
@@ -63,19 +109,13 @@ namespace JobWorld.Controllers
             }
 
             users.Remove(user);
-            return NoContent(); // Restituisce 204 No Content
+            return NoContent();
         }
+    }
 
-        [HttpPost("login")]
-        public ActionResult<User> Login(User loginUser)
-        {
-            var user = users.FirstOrDefault(u => u.Email == loginUser.Email && u.PasswordHash == loginUser.PasswordHash);
-            if (user == null)
-            {
-                return Unauthorized(); // Restituisce 401 Unauthorized
-            }
-            return Ok(user);
-        }
-
+    public class LoginRequest
+    {
+        public required string Email { get; set; }
+        public required string Password { get; set; }
     }
 }
